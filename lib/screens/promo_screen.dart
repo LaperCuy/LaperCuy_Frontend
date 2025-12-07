@@ -341,7 +341,7 @@ class PromoScreen extends StatelessWidget {
                               }
                                   : null, // Tombol mati jika sold out
                               child: const Text(
-                                "Lihat Detail Promo",
+                                "Lihat Kode",
                                 style: TextStyle(fontSize: 8, color: Colors.white),
                               ),
                             ),
