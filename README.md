@@ -1,6 +1,6 @@
 # lapercuy
 
-lapercuy project
+LaperCuy Project.
 
 ## Getting Started
 
