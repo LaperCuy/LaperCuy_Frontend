@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'theme.dart';
+import 'screens/login_screen.dart'; // Import Login Screen sebagai halaman awal
 import 'screens/home_screen.dart';
 import 'screens/map_screen.dart';
 import 'screens/promo_screen.dart';
@@ -19,11 +20,15 @@ class LaperCuyApp extends StatelessWidget {
       title: 'LaperCuy',
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      home: const MainNavigation(),
+      // PERUBAHAN UTAMA DI SINI:
+      // Mengatur LoginScreen sebagai halaman pertama yang muncul
+      home: const LoginScreen(),
     );
   }
 }
 
+// Class ini tetap ada untuk menampung Bottom Navigation Bar
+// Class ini nanti akan dipanggil SETELAH user berhasil Login
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
 
@@ -32,7 +37,7 @@ class MainNavigation extends StatefulWidget {
 }
 
 class _MainNavigationState extends State<MainNavigation> {
-  int _currentIndex = 2; // Default ke Home (index 2)
+  int _currentIndex = 2; // Default ke Home (index 2) agar pas login langsung liat makanan
 
   final List<Widget> _screens = [
     const MapScreen(),
@@ -47,7 +52,7 @@ class _MainNavigationState extends State<MainNavigation> {
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10)],
         ),
         child: BottomNavigationBar(

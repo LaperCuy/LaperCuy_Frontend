@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/data_dummy.dart';
 import '../theme.dart';
+import 'chat_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -37,6 +38,46 @@ class _MapScreenState extends State<MapScreen> {
           Positioned(
             top: 400, left: 250,
             child: Icon(Icons.location_on, color: Colors.red, size: 40),
+          ),
+          // ... kode map lainnya ...
+
+          // --- TOMBOL CHATBOT AI (Posisi Kiri Bawah) ---
+          Positioned(
+            bottom: 150, // Sesuaikan ketinggian agar tidak menutupi slider radius
+            left: 16,
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  // Navigasi ke Chat Screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChatScreen()),
+                  );
+                },
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: primaryBlue, // Warna Biru LaperCuy
+                    borderRadius: BorderRadius.circular(12), // Sudut Melengkung (Rounded Square)
+                    boxShadow: [
+                      BoxShadow(
+                        color: primaryBlue.withOpacity(0.4),
+                        blurRadius: 8,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: const Icon(
+                    Icons.chat_bubble_outline, // Icon Chat
+                    color: Colors.white,
+                    size: 24,
+                  ),
+                ),
+              ),
+            ),
           ),
 
           // --- HEADER & FILTERS (Tetap sama seperti kode sebelumnya) ---
